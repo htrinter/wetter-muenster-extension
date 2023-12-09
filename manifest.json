@@ -1,22 +1,23 @@
 {
   "name": "Wetter Münster",
-  "version": "1.2.2",
-  "manifest_version": 2,
+  "version": "1.2.3",
+  "manifest_version": 3,
   "description": "Aktuelle Wetterdaten des Instituts für Landschaftsökologie der Universität Münster.",
   "icons": { "16": "icon16.png",
            "48": "icon48.png",
           "128": "icon128.png" },
-  "browser_action": {
+  "action": {
     "default_icon": "icon19.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-    "https://www.uni-muenster.de/Klima/wetter/wetter.php",
     "storage",
     "alarms"
   ],  
   "background": {
-    "scripts": ["jquery.min.js", "eventpage.js"],
-    "persistent": false
-  }
+    "service_worker": "eventpage.js"
+  },
+  "host_permissions": [
+    "https://www.uni-muenster.de/Klima/wetter/wetter.php"
+  ]
 }
