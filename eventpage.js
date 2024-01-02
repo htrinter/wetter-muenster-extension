@@ -41,7 +41,7 @@ function fetchWeatherData() {
 			const temperatureSelector = '<td class="data tab4" style="text-align:right;">';
 			const temperatureStart = data.indexOf(temperatureSelector) + temperatureSelector.length;
 			const temperatureEnd = data.indexOf('</td>', temperatureStart);
-			const weatherTemperature = data.slice(temperatureStart, temperatureEnd);
+			const weatherTemperature = data.slice(temperatureStart, temperatureEnd).replace("°C", "").trim();
 
 			if (weatherTemperature && weatherData) {
 				chrome.storage.local.set({ 'weather': weatherData });
